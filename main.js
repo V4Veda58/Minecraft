@@ -22,8 +22,8 @@ function player_update(){
 function new_image(get_image){
     fabric.Image.fromURL(get_image, function(Img){
         block_image_object = Img;
-        block_image_object.scaleToWidth(block_image_object_width);
-        block_image_object.scaleToHeight(block_image_object_height);
+        block_image_object.scaleToWidth(block_image_width);
+        block_image_object.scaleToHeight(block_image_height);
         block_image_object.set({
             top:player_y,
             left:player_x
@@ -33,7 +33,7 @@ function new_image(get_image){
 }
 window.addEventListener("keydown", my_keydown);
 function my_keydown(e){
-    keyPressed = e.keycode;
+    keyPressed = e.keyCode;
     console.log(keyPressed);
     if(e.shiftkey == true && keyPressed == '80'){
         console.log("p and shift key are pressed together");
@@ -123,7 +123,7 @@ function my_keydown(e){
     }
     function left(){
         if(player_x >=0){
-            player_x = player_x + block_image_width;
+            player_x = player_x - block_image_width;
             console.log("block image width =" + block_image_width);
             console.log("When Left arrow key is pressed, Y = " + player_y + " , X = " + player_x);
             canvas.remove(player_object);
